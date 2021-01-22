@@ -7,7 +7,7 @@ def echo(x):
     print(x)
 
 
-with Flow("test-s3") as flow:
+with Flow("test-github") as flow:
     echo("hello")
 
 
