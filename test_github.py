@@ -1,6 +1,6 @@
 import os
 
-from prefect import Flow, task
+from prefect import Flow, task, Parameter
 from prefect.storage import GitHub
 from prefect.run_configs import LocalRun
 
@@ -12,7 +12,8 @@ def greet(name):
 
 
 with Flow("test-github") as flow:
-    greet("hello")
+    name = Parameter("name")
+    greet(name)
 
 
 flow.storage = GitHub("jcrist/prefect-hacking", path="test_github.py")
